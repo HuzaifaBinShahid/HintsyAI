@@ -1,0 +1,88 @@
+# electron-builder.yml
+
+# The unique application ID
+appId: come.hintsy.ai
+
+# The user-facing application name
+productName: HintsyAI
+
+# Publish configuration for GitHub releases
+publish:
+    provider: github
+    owner: pickle-com
+    repo: glass
+    releaseType: draft
+
+# Protocols configuration for deep linking
+protocols:
+    name: PickleGlass Protocol
+    schemes: 
+        - pickleglass
+
+# List of files to be included in the app package
+files:
+    - src/**/*
+    - package.json
+    - pickleglass_web/backend_node/**/*
+    - '!**/node_modules/electron/**'
+    - public/build/**/*
+
+# Additional resources to be copied into the app's resources directory
+extraResources:
+    - from: pickleglass_web/.next
+      to: .next
+
+# asarUnpack:
+    # - "src/ui/assets/SystemAudioDump"  # Binary not available - disabled for now
+
+# Windows configuration
+win:
+    icon: src/ui/assets/logo.ico
+    target:
+        - target: nsis
+          arch: x64
+        - target: portable
+          arch: x64
+    requestedExecutionLevel: asInvoker
+    signAndEditExecutable: true
+    cscLink: build\certs\glass-dev.pfx
+    cscKeyPassword: "${env.CSC_KEY_PASSWORD}"
+    signtoolOptions:
+      certificateSubjectName: "Glass Dev Code Signing"
+    protocols:
+        - name: "Hintsy AI Protocol"
+          schemes: ["pickleglass"]
+
+# NSIS installer configuration for Windows
+nsis:
+    oneClick: false
+    perMachine: false
+    allowToChangeInstallationDirectory: true
+    deleteAppDataOnUninstall: true
+    createDesktopShortcut: always
+    createStartMenuShortcut: true
+    shortcutName: HintsyAI
+
+# macOS specific configuration
+mac:
+    # The application category type
+    category: public.app-category.utilities
+    # Path to the .icns icon file
+    icon: src/ui/assets/logo.icns
+    # Minimum macOS version (supports both Intel and Apple Silicon)
+    minimumSystemVersion: '11.0'
+    hardenedRuntime: true
+    entitlements: entitlements.plist
+    # Protocol schemes for macOS
+    protocols:
+        - name: "HintsyAI Protocol"
+          schemes: ["pickleglass"]
+    entitlementsInherit: entitlements.plist
+    target:
+      - target: dmg
+        arch: universal
+      - target: zip
+        arch: universal
+
+# Enable code signing and notarization
+# afterSign: "notarize.js"

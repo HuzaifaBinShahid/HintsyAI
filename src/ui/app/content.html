@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
+        <title>Hintsy AI Content</title>
+        <style>
+            :root {
+                --background-transparent: transparent;
+                --text-color: rgba(255, 255, 255, 0.9);
+                --border-color: rgba(255, 255, 255, 0.1);
+                --header-background: rgba(255, 255, 255, 0.03);
+                --header-actions-color: rgba(255, 255, 255, 0.7);
+                --main-content-background: rgba(255, 255, 255, 0.02);
+                --button-background: rgba(255, 255, 255, 0.05);
+                --button-border: rgba(255, 255, 255, 0.1);
+                --icon-button-color: rgba(255, 255, 255, 0.9);
+                --hover-background: rgba(255, 255, 255, 0.08);
+                --input-background: rgba(255, 255, 255, 0.03);
+                --placeholder-color: rgba(255, 255, 255, 0.4);
+                --focus-border-color: rgba(255, 255, 255, 0.2);
+                --focus-box-shadow: rgba(255, 255, 255, 0.1);
+                --input-focus-background: rgba(255, 255, 255, 0.05);
+                --scrollbar-track: rgba(255, 255, 255, 0.02);
+                --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+                --scrollbar-thumb-hover: rgba(255, 255, 255, 0.2);
+                --preview-video-background: rgba(0, 0, 0, 0.3);
+                --preview-video-border: rgba(255, 255, 255, 0.1);
+                --option-label-color: rgba(255, 255, 255, 0.8);
+                --screen-option-background: rgba(255, 255, 255, 0.03);
+                --screen-option-hover-background: rgba(255, 255, 255, 0.08);
+                --screen-option-selected-background: rgba(255, 255, 255, 0.15);
+                --screen-option-text: rgba(255, 255, 255, 0.7);
+                --description-color: rgba(255, 255, 255, 0.6);
+                --start-button-background: rgba(255, 255, 255, 0.1);
+                --start-button-color: rgba(255, 255, 255, 0.9);
+                --start-button-border: rgba(255, 255, 255, 0.2);
+                --start-button-hover-background: rgba(255, 255, 255, 0.15);
+                --start-button-hover-border: rgba(255, 255, 255, 0.3);
+                --text-input-button-background: rgba(255, 255, 255, 0.1);
+                --text-input-button-hover: rgba(255, 255, 255, 0.15);
+                --link-color: rgba(255, 255, 255, 0.8);
+                --key-background: rgba(255, 255, 255, 0.05);
+                --scrollbar-background: rgba(255, 255, 255, 0.02);
+
+                /* Layout-specific variables */
+                --header-padding: 10px 20px;
+                --header-font-size: 16px;
+                --header-gap: 12px;
+                --header-button-padding: 8px 16px;
+                --header-icon-padding: 8px;
+                --header-font-size-small: 13px;
+                --main-content-padding: 20px;
+                --main-content-margin-top: 10px;
+                --icon-size: 24px;
+                --border-radius: 7px;
+                --content-border-radius: 7px;
+            }
+
+            /* Compact layout styles */
+            :root.compact-layout {
+                --header-padding: 6px 12px;
+                --header-font-size: 13px;
+                --header-gap: 6px;
+                --header-button-padding: 4px 8px;
+                --header-icon-padding: 4px;
+                --header-font-size-small: 10px;
+                --main-content-padding: 10px;
+                --main-content-margin-top: 2px;
+                --icon-size: 16px;
+                --border-radius: 4px;
+                --content-border-radius: 4px;
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+                overflow: hidden;
+                background: transparent;
+            }
+
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            pickle-glass-app {
+                display: block;
+                width: 100%;
+                transform: translate3d(0, 0, 0);
+                backface-visibility: hidden;
+                perspective: 1000px;
+                transform-origin: center center;
+                contain: layout style paint;
+                transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <link rel="stylesheet" href="../styles/glass-bypass.css">
+        <script src="../assets/marked-4.3.0.min.js"></script>
+        
+        <script type="module" src="../../../public/build/content.js"></script>
+
+        <pickle-glass-app id="pickle-glass"></pickle-glass-app>
+        
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const app = document.getElementById('pickle-glass');
+
+            });
+        </script>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('glass') === 'true') {
+                document.body.classList.add('has-glass');
+            }
+        </script>
+    </body>
+</html>

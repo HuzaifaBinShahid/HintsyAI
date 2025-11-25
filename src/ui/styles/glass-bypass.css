@@ -1,0 +1,165 @@
+/*
+  이 파일은 body.has-glass 클래스가 적용되었을 때 모든 애니메이션, 트랜지션,
+  배경, 테두리 등을 비활성화하여 깨끗한 투명 효과(Glass)를 보장합니다.
+*/
+
+/* Enhanced Glass Effect Styles */
+body.has-glass * {
+    animation: none !important;
+    transition: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Enhanced Glass Effect for the entire application */
+:root {
+    --glass-background: rgba(255, 255, 255, 0.05);
+    --glass-background-secondary: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --glass-backdrop-blur: blur(20px);
+    --glass-backdrop-blur-light: blur(10px);
+    --glass-text-primary: rgba(255, 255, 255, 0.9);
+    --glass-text-secondary: rgba(255, 255, 255, 0.7);
+    --glass-overlay: rgba(0, 0, 0, 0.1);
+}
+
+/* Apply glass effect to main containers */
+pickle-glass-app,
+listen-view,
+ask-view,
+settings-view {
+    background: var(--glass-background) !important;
+    backdrop-filter: var(--glass-backdrop-blur) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Enhanced glass effect for specific containers */
+.assistant-container,
+.ask-container {
+    background: var(--glass-background) !important;
+    backdrop-filter: var(--glass-backdrop-blur) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Glass effect for input fields and buttons */
+input, textarea, button {
+    background: var(--glass-background-secondary) !important;
+    backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--glass-text-primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--glass-border-hover) !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Glass effect for scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--glass-background-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 4px;
+    backdrop-filter: var(--glass-backdrop-blur-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--glass-border-hover);
+}
+
+/* Glass effect for code blocks */
+pre, code {
+    background: var(--glass-background-secondary) !important;
+    backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* Hover effects for glass elements */
+.assistant-container:hover,
+.ask-container:hover {
+    border-color: var(--glass-border-hover) !important;
+    box-shadow: var(--glass-shadow-hover) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Glass effect for top bars and headers */
+.top-bar, .header {
+    background: var(--glass-background-secondary) !important;
+    backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+}
+
+/* Enhanced hover effects for buttons */
+button:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--glass-border-hover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Glass effect for settings containers */
+.settings-container,
+.container {
+    background: var(--glass-background) !important;
+    backdrop-filter: var(--glass-backdrop-blur) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    transition: all 0.3s ease !important;
+}
+
+.settings-container:hover,
+.container:hover {
+    border-color: var(--glass-border-hover) !important;
+    box-shadow: var(--glass-shadow-hover) !important;
+}
+
+/* Glass effect for form elements */
+select, option {
+    background: var(--glass-background-secondary) !important;
+    backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur-light) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--glass-text-primary) !important;
+}
+
+/* Enhanced focus states */
+*:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.2) !important;
+    outline-offset: 2px !important;
+}
+
+/* Glass effect for dropdowns and menus */
+.dropdown, .menu {
+    background: var(--glass-background) !important;
+    backdrop-filter: var(--glass-backdrop-blur) !important;
+    -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+}
